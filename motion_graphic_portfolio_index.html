@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="mr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Motion Graphic Portfolio — Trushal Ghadigaonkar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--muted:#9aa4b2;--accent:#ff6b6b}
+    *{box-sizing:border-box}
+    body{font-family:Rubik,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0; background:linear-gradient(180deg,#071022 0%, #0f1724 100%); color:#e7eef8; -webkit-font-smoothing:antialiased}
+    .container{max-width:1000px;margin:40px auto;padding:24px}
+    header{display:flex;align-items:center;gap:16px}
+    .avatar{width:88px;height:88px;border-radius:12px;background:linear-gradient(135deg,#1f2937,#0b1220);display:flex;align-items:center;justify-content:center;font-weight:700}
+    h1{margin:0;font-size:22px}
+    p.lead{color:var(--muted);margin:6px 0 0}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:#071022;font-weight:700;text-decoration:none}
+
+    /* layout */
+    main{display:grid;grid-template-columns:1fr;gap:26px;margin-top:28px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;padding:18px}
+
+    /* about */
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .chip{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-size:13px;color:var(--muted)}
+
+    /* gallery */
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .project{background:#061226;border-radius:10px;overflow:hidden;padding:0}
+    .project img{width:100%;height:170px;object-fit:cover;display:block}
+    .project .meta{padding:10px}
+    .project h3{margin:0;font-size:15px}
+    .project p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    /* contact */
+    .contact-row{display:flex;gap:12px;flex-wrap:wrap}
+    .social a{margin-right:8px;color:var(--muted);text-decoration:none}
+
+    footer{margin-top:22px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media(min-width:760px){
+      main{grid-template-columns:1fr 420px}
+      .grid{grid-template-columns:repeat(2,1fr)}
+    }
+
+    @media(max-width:420px){.grid{grid-template-columns:1fr}.avatar{width:64px;height:64px}}
+
+    /* lightbox modal (simple) */
+    .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.7);visibility:hidden;opacity:0;transition:opacity .18s}
+    .modal.show{visibility:visible;opacity:1}
+    .modal-content{max-width:90%;max-height:80%;}
+    .modal-content img{width:100%;height:auto;border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar">TG</div>
+      <div>
+        <h1>त्रुषाल घडीगांवकर — Motion Graphic Designer</h1>
+        <p class="lead">4 वर्षांचा अनुभव • After Effects, Illustrator, Photoshop • Ad agency background</p>
+        <div style="margin-top:10px">
+          <a class="btn" href="#work">माझे काम पहा</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Left column: main content -->
+      <div>
+        <section class="card" id="about">
+          <h2>विषयी</h2>
+          <p style="color:var(--muted);margin-top:8px">मी motion graphics, title sequences, social reels आणि ad-campaign animations बनवतो. माझे काम storytelling वर आधारित आणि ब्रँडच्या संदेशाला visual energy देणारे असते.</p>
+          <div class="skills">
+            <span class="chip">After Effects</span>
+            <span class="chip">Premiere Pro</span>
+            <span class="chip">Illustrator</span>
+            <span class="chip">Photoshop</span>
+            <span class="chip">Cinema 4D (basic)</span>
+            <span class="chip">Storyboard & Concept</span>
+          </div>
+        </section>
+
+        <section class="card" id="work" style="margin-top:16px">
+          <h2>प्रकल्प (Portfolio)</h2>
+          <p style="color:var(--muted);margin-top:6px">खाली काही निवडक प्रोजेक्ट्स आहेत — थंबनेल क्लिक केल्यावर मोठ्या view मध्ये पहा.</p>
+
+          <div class="grid" id="projects">
+            <!-- Replace image src with your project thumbnails (jpg/png). Edit title & description in HTML. -->
+            <div class="project" data-full="/images/project1-full.jpg">
+              <img src="https://via.placeholder.com/800x600.png?text=Project+1" alt="Project 1">
+              <div class="meta"><h3>Ad Campaign — Brand X</h3><p>30s animated ad sequence — concept to final compositing.</p></div>
+            </div>
+
+            <div class="project" data-full="/images/project2-full.jpg">
+              <img src="https://via.placeholder.com/800x600.png?text=Project+2" alt="Project 2">
+              <div class="meta"><h3>Social Reel — Quick Cuts</h3><p>Short-form motion for Instagram reels.</p></div>
+            </div>
+
+            <div class="project" data-full="/images/project3-full.jpg">
+              <img src="https://via.placeholder.com/800x600.png?text=Project+3" alt="Project 3">
+              <div class="meta"><h3>Title Sequence — Short Film</h3><p>Typographic motion and transitions.</p></div>
+            </div>
+
+            <div class="project" data-full="/images/project4-full.jpg">
+              <img src="https://via.placeholder.com/800x600.png?text=Project+4" alt="Project 4">
+              <div class="meta"><h3>Explainer — Product UI</h3><p>Animated UI walkthrough & micro-interactions.</p></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="services" style="margin-top:16px">
+          <h2>सेवा</h2>
+          <ul style="color:var(--muted);margin-top:8px">
+            <li>Motion Graphics & Explainers</li>
+            <li>Ad Films — 15s / 30s</li>
+            <li>Reels & Social Content</li>
+            <li>Title Sequences & Stings</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Right column: contact / quick info -->
+      <aside>
+        <div class="card">
+          <h3>त्वरित संपर्क</h3>
+          <p style="color:var(--muted);margin-top:6px">ईमेल: <a href="mailto:trushal@example.com" style="color:#e7eef8">trushal@example.com</a></p>
+          <p style="color:var(--muted);margin-top:6px">फोन: +91 9xxxxxxxxx</p>
+          <div style="margin-top:10px">
+            <a class="btn" href="mailto:trushal@example.com">कामासाठी संपर्क करा</a>
+          </div>
+
+          <div style="margin-top:12px">
+            <h4 style="margin:0 0 6px 0">सोशल</h4>
+            <div class="social">
+              <a href="#">Behance</a> • <a href="#">Instagram</a> • <a href="#">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h4>डाउनलोड / लिंक</h4>
+          <p style="color:var(--muted);margin-top:6px">CV / Showreel साठी लिंक ठेवा:</p>
+          <a class="btn" href="#">Showreel पहा</a>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      © "त्रुषाल घडीगांवकर" — Motion Graphic Designer
+    </footer>
+  </div>
+
+  <!-- Simple lightbox modal -->
+  <div id="modal" class="modal" onclick="hideModal()"><div class="modal-content" id="modalContent"></div></div>
+
+  <script>
+    // Click on project to open lightbox
+    document.querySelectorAll('.project').forEach(p=>{
+      p.addEventListener('click',()=>{
+        const full = p.getAttribute('data-full') || p.querySelector('img').src
+        const modal = document.getElementById('modal')
+        const container = document.getElementById('modalContent')
+        container.innerHTML = '<img src="'+full+'" alt="project">'
+        modal.classList.add('show')
+      })
+    })
+    function hideModal(){document.getElementById('modal').classList.remove('show')}
+  </script>
+
+  <!--
+    HOW TO USE / EDIT (short notes):
+    1) बदलण्यासाठी: या फाइलमधील थंबनेल इमेजेस बदलून आपल्या प्रोजेक्ट थंबनेल द्या.
+    2) contact info बदलण्यासाठी "mailto" आणि फोन नंबर आपल्या तपशीलात बदला.
+    3) साइट फ्री होस्ट करण्यासाठी: GitHub Pages, Netlify Drop किंवा Neocities वापरा.
+    4) अधिक बदल हवेत तर मला सांगा — मी रंग/layout/प्रत्येक पृष्ठासाठी वेगळा पेज बनवून देऊ शकतो.
+  -->
+</body>
+</html>
